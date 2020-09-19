@@ -1,0 +1,49 @@
+import UIKit
+
+var str : String = "Hello, playground" //type can't be changed once set
+str = "Hello"
+
+let str2 = "Hello playground" //constant
+// str2 = "what" //cant change
+print(str)
+
+var names : [String] = ["Tim", "Tina", "Billy", "Alice"]
+print(names)
+
+//let name = names[7] //crashes when looking for 7th name when only 4 given
+let name1 = names[2]
+print(name1)
+
+for name in names {
+    print(name)
+}
+
+//swift dictionary whose keys are strings and values are also strings;
+// [String : String] in Swift vs. HashMap<String,String> in java.
+// Any alllows us to have any type
+var user : [String : Any] =
+    [
+        "name": "Timothy",
+        "hometown": "Dallas",
+        "occupation": "Engineer",
+        "age" : 39
+        // "age": "39" //would crash like this because cast below would fail."
+]
+//look at different companies' style guides. they won't be uniform
+
+//var users : [[String: Any]] //array of user with dictionaries. array of hashmap
+var users : [[String: Any]] = [[String: Any]]() //initializes it
+users.append(user)
+
+var x: Int
+var y: Int? //optional, could be nil' need to unwrap it.
+
+//question mark after Any makes it an optional
+let name : Any? = user["name"]
+print(name) //it said that its an Optional
+
+//forced unwrap
+// even if you type it as String or Int, you'd get a problem without the forced unwrap
+// exclamation points are rare in a professional app; moswtly they use question marks.
+let name2 : String = user["name"] as! String
+let age : Int = user["age"] as! Int //in real life its dangerous to use and can cause crashes if type is wrong
